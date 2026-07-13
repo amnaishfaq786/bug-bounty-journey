@@ -1,0 +1,79 @@
+* Host example.com:443 was resolved.
+* IPv6: 2606:4700:10::ac42:93f3, 2606:4700:10::6814:179a
+* IPv4: 104.20.23.154, 172.66.147.243
+*   Trying [2606:4700:10::ac42:93f3]:443...
+* ALPN: curl offers h2,http/1.1
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [1690 bytes data]
+* SSL Trust Anchors:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+*   CApath: /etc/ssl/certs
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [1210 bytes data]
+* TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+{ [19 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [3687 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [79 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [52 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [52 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / X25519MLKEM768 / id-ecPublicKey
+* ALPN: server accepted h2
+* Server certificate:
+*   subject: CN=example.com
+*   start date: May 31 21:39:12 2026 GMT
+*   expire date: Aug 29 21:41:26 2026 GMT
+*   issuer: C=US; O=SSL Corporation; CN=Cloudflare TLS Issuing ECC CA 3
+*   Certificate level 0: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using ecdsa-with-SHA256
+*   Certificate level 1: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using ecdsa-with-SHA384
+*   Certificate level 2: Public key type EC/secp384r1 (384/192 Bits/secBits), signed using ecdsa-with-SHA384
+*   Certificate level 3: Public key type EC/secp384r1 (384/192 Bits/secBits), signed using ecdsa-with-SHA384
+*   subjectAltName: "example.com" matches cert's "example.com"
+* OpenSSL verify result: 0
+* SSL certificate verified via OpenSSL.
+* Established connection to example.com (2606:4700:10::ac42:93f3 port 443) from fd17:625c:f037:2:9403:f7fb:7906:e06c port 47186 
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://example.com/
+* [HTTP/2] [1] [:method: GET]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: example.com]
+* [HTTP/2] [1] [:path: /]
+* [HTTP/2] [1] [user-agent: curl/8.20.0]
+* [HTTP/2] [1] [accept: */*]
+} [5 bytes data]
+> GET / HTTP/2
+> Host: example.com
+> User-Agent: curl/8.20.0
+> Accept: */*
+> 
+* Request completely sent off
+} [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [230 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [230 bytes data]
+< HTTP/2 200 
+< date: Mon, 13 Jul 2026 06:47:03 GMT
+< content-type: text/html
+< server: cloudflare
+< last-modified: Wed, 01 Jul 2026 17:52:37 GMT
+< allow: GET, HEAD
+< accept-ranges: bytes
+< age: 5863
+< cf-cache-status: HIT
+< cf-ray: a1a65588ade8ce06-SIN
+< 
+{ [5 bytes data]
+100    559   0    559   0      0    844      0                              0100    559   0    559   0      0    844      0                              0100    559   0    559   0      0    844      0                              0
+* Connection #0 to host example.com:443 left intact
