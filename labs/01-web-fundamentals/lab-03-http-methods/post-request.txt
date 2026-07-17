@@ -1,0 +1,9 @@
+POST /post HTTP/1.1
+Host: httpbin.org
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+User-Agent: Mozilla/5.0
+Accept: */*
+Connection: close
+
+name=test&age=1
